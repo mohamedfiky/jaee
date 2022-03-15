@@ -51,23 +51,23 @@ window.onscroll = function(){
   let scroll_btn = document.querySelector("button.scroll");
   if(window.scrollY > 350){
     scroll_btn.style.visibility= "visible";
-    scroll_btn.style.translate = "0 0";
+    scroll_btn.style.transform = "translateY(0)";
   }else{
     scroll_btn.style.visibility= "hidden";
-    scroll_btn.style.translate = "0 150px";
+    scroll_btn.style.transform = "translateY(150px)";
   }
 
   let about = document.querySelector(".about-us");
   if(window.scrollY > about.offsetTop -400){
-    document.querySelector(".about-us .image").style.translate = 0;
-    document.querySelector(".about-us .text").style.translate = 0;
+    document.querySelector(".about-us .image").style.transform = "translateX(0)";
+    document.querySelector(".about-us .text").style.transform = "translateX(0)";
   }
 
   let our_adv = document.querySelector(".our-advantage");
   if(window.scrollY > our_adv.offsetTop -400){
     let advArr = document.querySelectorAll(".our-advantage .advantages div");
     advArr.forEach( adv=> {
-      adv.style.translate = "0 0";
+      adv.style.transform = "translateY(0)";
     });
   }
 
@@ -75,7 +75,7 @@ window.onscroll = function(){
   if(window.scrollY > products.offsetTop -400){
     let prodArr = document.querySelectorAll(".products .products-row .pro");
     prodArr.forEach( pro => {
-      pro.style.translate = "0 0";
+      pro.style.transform = "translateY(0)";
     });  
   }
 
