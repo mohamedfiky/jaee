@@ -131,11 +131,46 @@ header .upper-header .langs ul.hidden{
     display: none;
 }
 
+
+@media (max-width:768px){
+
+    header .upper-header .top-bar{
+        flex-direction: column;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    header .upper-header .social{
+        justify-content: center;
+        margin-right: 0; 
+        padding: 25px;
+    }
+
+    header .upper-header .social a{
+        font-size: 16px;
+        padding:4px 8px;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        margin: 0 12px;
+    }
+
+    header .upper-header .langs ul{
+        right:-12px;
+    }
+
+    header .upper-header .langs ul li{
+        text-align: center;
+    }
+    
+
+}
+
+
+
 /************************************/
 
 header .nav-area{
     background-color: #fff;
-    height:108px;
 }
 
 header .nav-area .nav-bar{
@@ -152,9 +187,9 @@ header .nav-bar nav{
 }
 
 header .nav-bar nav > li{
-    margin-left: 30px;
+    margin-left: 12px;
     font-size: 22px;
-    padding:20px;
+    padding:20px 10px;
     position: relative;
 }
 
@@ -162,15 +197,15 @@ header .nav-bar nav > li.active > a{
     color: var(--blue);
 }
 
-header .nav-bar nav > li.active > a::after{
+header .nav-bar nav > li.active::after{
     content: "";
     position: absolute;
     height: 2px;
     background: var(--blue);
-    bottom: -16px;
+    bottom: 6px;
     left: 50%;
-    width: 80%;
-    margin-left: -40%;
+    width: 60%;
+    margin-left: -30%;
 }
 
 
@@ -179,25 +214,41 @@ header .nav-bar nav > li > a{
     position: relative;
 }
 
-header .nav-bar nav > li > a::after{
+header .nav-bar nav > li::after{
     content: "";
     position: absolute;
     width: 0%;
     height: 2px;
     background: var(--blue);
-    bottom: -16px;
+    bottom: 6px;
     left: 50%;
     transition: all 0.4s ease-in-out;  /* ما بتاخدش من فوق عشان سودو إليمينت */
 }
 
-header .nav-bar nav > li:hover > a::after{
-    width: 80%;
-    margin-left: -40%;
+header .nav-bar nav > li:hover::after{
+    width: 60%;
+    margin-left: -30%;
 }
 
 header .nav-bar nav > li:hover > a{
     color: var(--blue);
 }
+
+
+
+
+header .nav-bar nav li.drop-down >a::after,
+header .nav-bar .menu-bar .toggle-menu li.drop-down >a::after{
+    content: "";
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: 3px;
+    border-top: 5px solid ;
+    border-left: 5px solid transparent;
+    border-bottom: 0;
+    border-right: 5px solid transparent;
+}
+
 
 header .nav-bar nav li.drop-down .drop-down-ul{
     display: none;
@@ -235,9 +286,93 @@ header .nav-bar nav li.drop-down .drop-down-ul li:hover a{
     color: var(--blue);
 }
 
+header .nav-bar .menu-bar{
+    position: relative;
+    display: none;
+    font-weight: bold;
+    font-size: 32px;
+    margin-right: 100px;
+    cursor: pointer;
+}
+
+header .nav-bar .menu-bar .toggle-menu{
+    display: none;
+    position: relative;
+}
+
+header .nav-bar .menu-bar .toggle-menu.open{ 
+    display: block;
+}
+
+header .nav-bar .menu-bar .toggle-menu >ul
+{
+    background: var(--blue);
+    min-width:300px;
+    position: absolute;
+    top:38px;
+    left:-476%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    z-index: 10000;
+}
+
+
+header .nav-bar .menu-bar .toggle-menu >ul >li >a{ 
+    color: #fff;
+    font-size: 20px;
+    display: block;
+    padding: 10px;
+}
+
+
+header .nav-bar .menu-bar .toggle-menu >ul >li:hover{
+    background-color: #fff;
+}
+
+
+header .nav-bar .menu-bar .toggle-menu >ul >li:hover >a{
+    color: var(--blue);
+}
+
+
+header .nav-bar .menu-bar .toggle-menu .drop-down .drop-down-ul{
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    width: 70%;
+    margin: auto;
+}
+
+header .nav-bar .menu-bar .toggle-menu .drop-down:hover .drop-down-ul{
+    border-left: 1px solid var(--blue);
+    border-right: 1px solid var(--blue);
+    border-bottom: 1px solid #fff;
+
+}
+
+header .nav-bar .menu-bar .toggle-menu .drop-down-ul a{
+    color:#fff;
+    font-size: 14px;
+    display: block;
+    text-align: center;
+    padding: 10px;
+    font-weight: 400;
+}
+
+header .nav-bar .menu-bar .toggle-menu .drop-down:hover .drop-down-ul a{
+    color:var(--blue)
+}
+
+header .nav-bar .menu-bar .toggle-menu .drop-down .drop-down-ul a:hover{
+    background-color:var(--blue);
+    color:#fff;
+
+}
+
+
 header .nav-bar .search-btn{
     position: relative;
-
 }
 
 header .nav-bar .search-btn i{
@@ -249,7 +384,7 @@ header .nav-bar .search-btn i{
 header .nav-bar .search-btn .search-field{
     position: absolute;
     top:27px;
-    right:-20px;
+    right:8px;
     width:190px;
     z-index: 5;
 }
@@ -265,7 +400,6 @@ header .nav-bar .search-btn .search-field input{
     border-radius: 13px 0 0 13px;
     border-right: none;
     outline: none;
-    margin-left: -20px;
 }
 
 header .nav-bar .search-btn .search-field button{
@@ -279,6 +413,53 @@ header .nav-bar .search-btn .search-field button{
     position: absolute;
     top:0px;
 }
+
+@media (max-width:1100px){
+
+    header .nav-bar nav > li{
+        margin-left: 8px;
+        font-size: 20px;
+        padding:20px 8px;
+    }
+
+}
+
+@media (max-width:992px){
+
+    header .nav-bar nav{
+        display: none;
+    }
+    
+    header .nav-bar .menu-bar{
+        display: block;
+    }
+
+}
+
+@media (max-width:500px){
+
+    header .nav-area .nav-bar{
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+
+    header .nav-bar .logo{
+        min-width: 100%;
+        text-align: center;
+    }
+
+    header .nav-bar .menu-bar .toggle-menu >ul{
+        left:-160%;
+        top:20px;
+    }
+
+    header .nav-bar .search-btn .search-field{
+        top:-8px;
+        right:30px;
+    }
+
+}
+
 
 /**************************************************************************/
 
@@ -301,8 +482,8 @@ header .nav-bar .search-btn .search-field button{
 .prev, .next {
     cursor: pointer;
     position: absolute;
-    top: 43%;
-    color: white;
+    top: 40%;
+    color: rgba(255, 255, 255, 0.6);
     font-size: 45px;
     z-index: 3;
     right:10%;
@@ -313,12 +494,19 @@ header .nav-bar .search-btn .search-field button{
 }
   
 .prev:hover, .next:hover {
-    font-size: 50px;
+    color: #fff ;
 }
   
 .scale {
     animation-name: scale;
     animation-duration: 7s;
+}
+
+@media (max-width:768px){
+
+    .slideshow-container a{
+        display: none;
+    }
 }
 
 
@@ -341,7 +529,7 @@ header .nav-bar .search-btn .search-field button{
     box-shadow: 0px 0px 3px #aaa;
     position: fixed;
     right:-20px;
-    top:120px;
+    top:150px;
     z-index: 9;
 
 }
@@ -360,6 +548,17 @@ header .nav-bar .search-btn .search-field button{
     color:#fff;
 }
 
+
+
+@media (max-width:992px){
+    
+    .side-bar{
+        display: none;
+    }
+
+}
+
+
 /************************/
 
 button.scroll{
@@ -376,6 +575,15 @@ button.scroll{
     transition: 1s;
     transform: translateY(150px);    
     visibility: hidden;
+}
+
+@media(max-width:992px){
+    button.scroll{
+        font-size: 18px;
+        padding:12px;
+        bottom: 15px;
+        right:15px;
+    }
 }
 
 
@@ -457,11 +665,40 @@ button.scroll{
 }
 
 
+@media (max-width:768px){
+
+    .about-us{
+        padding: 60px 0;
+    }
+    
+    .about-us .about-content{
+        flex-direction: column;
+    }
+
+    .about-us .text{
+        width:100%;
+        line-height: 1.7;
+        font-size: 18px;
+        transform: translateX(70%);  
+        order: 1;  
+    }
+
+    .about-us .image{
+        width:100%;
+        height:auto;
+        margin-top: 20px;
+        transform: translateX(-70%);
+        order: 2;
+    }
+
+
+}
+
+
 
 /**************************************************************************/
 
 .our-advantage{
-    height:573px;
     background-color: var(--blue);
     opacity: 0.9;
     position: relative;
@@ -512,7 +749,6 @@ button.scroll{
     padding:50px 20px 0 ;
     display: flex;
     justify-content: space-between;
-
 }
 
 .our-advantage .advantages h3{
@@ -556,6 +792,7 @@ button.scroll{
     top:0;
     left:0;
     z-index: -1;
+    opacity: 0.7;
 }
 
 .our-advantage .right{
@@ -563,6 +800,28 @@ button.scroll{
     bottom:0;
     right:0;
     z-index: -1;
+    opacity: 0.7;
+}
+
+@media(max-width:768px){
+
+    .our-advantage .advantages{
+        flex-direction: column;
+    }
+
+    .our-advantage .advantages div{
+        margin-bottom: 30px;
+    }
+
+}
+
+@media(max-width:438px){
+    
+    .our-advantage h2::after{
+        top:144px;
+        left: 40%;
+    }
+
 }
 
 
@@ -627,10 +886,19 @@ button.scroll{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+
+.products .products-row .pro{
+    max-width: 23%;
+    margin: 30px 1%; 
+    text-align: center;   
 }
 
 .products .products-row img{
     scale: 0.9;
+    width: 100%;
 }
 
 .products .products-row img:hover{
@@ -689,6 +957,40 @@ button.scroll{
 } 
 
 
+
+@media(max-width:1200px){
+
+    
+    .products .products-row .pro{
+        min-width: 30%;    
+    }
+}
+
+@media(max-width:768px){
+
+    
+    .products .products-row .pro{
+        min-width: 45%;    
+    }
+}
+
+@media(max-width:600px){
+
+    .products .products-row .pro{
+        min-width: 70%;    
+    }
+
+}
+
+
+@media(max-width:370px){
+
+    .products .h2-link h2::after{
+        top:130px;
+
+    }
+}
+
 /**************************************************************************/
 
 .contact{
@@ -701,10 +1003,9 @@ button.scroll{
 
 .contact .contact-content{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     height:200px;
-
 }
 
 .contact .contact-content button{
@@ -716,6 +1017,7 @@ button.scroll{
     border-radius: 8px;
     letter-spacing: 0.5px;
     cursor: pointer;
+    flex-shrink:0;
 }
 
 .contact .contact-content button:hover{
@@ -724,6 +1026,15 @@ button.scroll{
     color: var(--blue);
 }
 
+
+@media(max-width:600px){
+
+    .contact .contact-content{
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
 
 /**************************************************************************/
 
@@ -876,7 +1187,7 @@ footer .main-footer form button{
     background: #fff;
     color:var(--blue);
     border-radius: 4px;
-    margin: 14px auto;
+    margin: 24px auto;
     border: none;
     display: block;
     font-size: 17px;
@@ -889,19 +1200,138 @@ footer .main-footer form button:hover{
 
 footer .footer-bar{
     background: var(--blue);
-    padding:12px 0;
+    padding:16px;
     color:#fff;
     font-size: 18px;
     margin-top: -35px;
+    text-align: center;
 }
 
 footer .footer-bar a{
     color:#fff;
-    padding: 0 5px ;
+    padding: 8px;
+    font-weight: bold;
+    background-color: var(--blue);
 }
 
 footer .footer-bar a:hover{
-    color:#333;
+    color:#555;
+}
+
+
+@media(max-width:992px){
+    
+    footer .main-footer{
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    footer .main-footer .logo-social{
+        width:50%;
+        padding-top: 0;
+        margin-top: -24px;
+        order:1;
+    }
+
+    footer .main-footer .logo-social .footer-social{
+        width:60%;
+    }
+
+    footer .main-footer form{
+        width:45%;
+        background: var(--blue);
+        position: relative;
+        order: 2;
+    }
+
+    footer .main-footer .navigation{
+        width:30%;
+        text-align: center;
+        order: 3;
+        margin-top: -20px;
+    }
+
+    footer .main-footer .contact-info{
+        width:45%;
+        order: 4;
+        margin-top: -20px;
+
+    }
+
+    footer .footer-bar{
+        margin-top: 35px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    footer .main-footer{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer .main-footer .logo-social{
+        width:70%;
+        margin-top: 20px;
+        order:1;
+    }
+
+    footer .main-footer .logo-social .footer-social{
+        width:60%;
+        margin: auto;
+    }
+
+    footer .main-footer form{
+        width:70%;
+        background: var(--blue);
+        position: relative;
+        order: 2;
+        margin-top: 40px;
+        padding: 30px;
+        top:0;
+    }
+
+    footer .main-footer .navigation{
+        width:70%;
+        order: 3;
+        margin-top: 35px;
+    }
+
+    footer .main-footer .contact-info{
+        width:70%;
+        order: 4;
+        margin-top: 35px;
+        line-height: 1.4;
+    }
+
+
+}
+
+@media(max-width:500px){
+    footer .main-footer .logo-social{
+        width:100%;
+
+    }
+
+    footer .main-footer .logo-social .footer-social{
+        width:55%;
+    }
+
+    footer .main-footer form{
+        width:100%;
+
+    }
+
+    footer .main-footer .navigation{
+        width:100%;
+
+    }
+
+    footer .main-footer .contact-info{
+        width:100%;
+
+    }
 }
 
 
