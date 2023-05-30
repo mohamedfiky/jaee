@@ -1205,17 +1205,18 @@ footer .footer-bar{
     font-size: 18px;
     margin-top: -35px;
     text-align: center;
+    line-height: 1.7;
 }
 
 footer .footer-bar a{
     color:#fff;
-    padding: 8px;
+    padding: 4px;
     font-weight: bold;
     background-color: var(--blue);
 }
 
 footer .footer-bar a:hover{
-    color:#555;
+    text-decoration: underline;
 }
 
 
